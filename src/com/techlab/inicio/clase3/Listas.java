@@ -1,7 +1,7 @@
 package com.techlab.inicio.clase3;
 import java.util.ArrayList;
 /*Tené una lista de productos con nombres desprolijos.
-Creá un método que recorra la lista y aplique el formateo a cada nombre, volviendo a imprimir la lista con nombres prolijos.
+Creá un método que recorra la lista y aplique el formateo a cada nombre, volviendo a imprimir la lista con nombres prolijos
 */
 public class Listas {
 
