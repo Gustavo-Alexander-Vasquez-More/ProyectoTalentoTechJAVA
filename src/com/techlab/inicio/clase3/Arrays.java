@@ -11,12 +11,10 @@ public class Arrays {
     productos[2]="Sansumg Galaxy S25";
     productos[3]="Poco A03";
     productos[4]="Moto G42";
-    System.out.println(productos[0]);
-    System.out.println(productos[1]);
-    System.out.println(productos[2]);
-    System.out.println(productos[3]);
-    System.out.println(productos[4]);
 
+    for(int i=0; i < productos.length; i++){
+      System.out.println("Producto: "+ productos[i]);
+    }
     //Si intentamos cargar otro producto no nos dejará, ya que el arreglo es de tamaño estático.
     //No puede cambiarse el tamaño de un arreglo ya definido
   }

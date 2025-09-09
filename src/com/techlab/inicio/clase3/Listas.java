@@ -5,23 +5,25 @@ Creá un método que recorra la lista y aplique el formateo a cada nombre, volvi
 */
 public class Listas {
 
-  public static ArrayList<String> formatear(ArrayList<String> lista){
-    int sizeList=lista.size(); //Primero pregunto el tamaño de la lista
-    for (int i=0; i < sizeList; i++){
-      StringBuilder sb= new StringBuilder();
-      String producto=lista.get(i).toLowerCase().trim(); //En cada recorrido accede de acuerdo a su índice y lo pasamos a minúscula y sacamos los espacios que pueda tener
-      String[] palabra=producto.split(" ");
-      for (int j =0; j < palabra.length; j++){ //recorre para palabra del string según su posición en la lista
-        if(!palabra[j].isEmpty()) {
-          sb.append(Character.toUpperCase(palabra[j].charAt(0)))
-              .append(palabra[j].substring(1))
-              .append(" ");
-        }
+  public static String formatearElemento(String elemento){
+    String cadena=elemento.toLowerCase();
+    String[] palabras=cadena.split(" "); //objecto de palabras un elemento de la lista
+    StringBuilder sb= new StringBuilder();
+    for(int i=0; i < palabras.length; i++){
+      if(!palabras[i].isEmpty()){
+        sb.append(Character.toUpperCase(palabras[i].charAt(0))) //convierte el primer caracter en mayucula
+            .append(palabras[i].substring(1))
+            .append(" ");
       }
-      lista.set(i, sb.toString().trim());
     }
-    return lista;
+    return sb.toString().trim();
   }
+  public static void formateoListas(ArrayList<String> lista){
+    for(int i=0; i < lista.size(); i++){
+      lista.set(i, formatearElemento(lista.get(i)));
+    }
+  }
+
   public static void main(String[] args) {
     ArrayList<String> lista=new ArrayList<>();
     lista.add("iphonE 14");
@@ -29,7 +31,7 @@ public class Listas {
     lista.add("saNsUmg GalAxy S25");
     lista.add("POcO A03");
     lista.add("motO g42");
-    ArrayList<String> productosFormateados = formatear(lista);
-    System.out.println(productosFormateados);
+    formateoListas(lista);
+    System.out.println(lista);
   }
 }
