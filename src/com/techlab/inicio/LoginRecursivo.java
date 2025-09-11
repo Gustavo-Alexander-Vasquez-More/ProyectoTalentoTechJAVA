@@ -16,6 +16,7 @@ public class LoginRecursivo {
       System.out.println("Bienvenido");
     }else if(intentos >= maxIntentos){
       System.out.println("Has agotado el maximo de intentos de sesión, contacta al administrador.");
+      System.exit(0);
     }else{
       System.out.println("Credenciales incorrectas, intente nuevamente");
         verificarRecursivo(intentos + 1, sc);
