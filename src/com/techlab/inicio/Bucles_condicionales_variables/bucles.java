@@ -1,4 +1,4 @@
-package com.techlab.inicio.clase2;
+package com.techlab.inicio.Bucles_condicionales_variables;
 import java.util.Scanner;
 public class bucles {
   public static void main(String[] args) {

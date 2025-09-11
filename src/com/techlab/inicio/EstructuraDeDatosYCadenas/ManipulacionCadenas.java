@@ -1,4 +1,4 @@
-package com.techlab.inicio.clase3;
+package com.techlab.inicio.EstructuraDeDatosYCadenas;
 
 public class ManipulacionCadenas {
 

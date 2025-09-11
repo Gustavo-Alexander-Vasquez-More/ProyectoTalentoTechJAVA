@@ -1,6 +1,4 @@
-package com.techlab.inicio.clase4;
-
-import java.lang.reflect.Array;
+package com.techlab.inicio.Funciones;
 
 public class Parametros_Argumentos {
 

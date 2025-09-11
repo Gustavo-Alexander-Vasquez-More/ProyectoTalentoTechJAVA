@@ -1,4 +1,4 @@
-package com.techlab.inicio.clasePOO;
+package com.techlab.inicio.POO_I;
 //En la clase Producto, agrega un método mostrarInformacion() que imprima nombre, precio y stock.
 public class Producto {
   String nombre;

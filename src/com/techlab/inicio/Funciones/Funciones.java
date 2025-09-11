@@ -1,4 +1,4 @@
-package com.techlab.inicio.clase4;
+package com.techlab.inicio.Funciones;
 
 public class Funciones {
 

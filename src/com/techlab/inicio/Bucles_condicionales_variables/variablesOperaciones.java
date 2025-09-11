@@ -1,4 +1,4 @@
-package com.techlab.inicio.clase2;
+package com.techlab.inicio.Bucles_condicionales_variables;
 
 public class variablesOperaciones {
   public static void main(String[] args) {

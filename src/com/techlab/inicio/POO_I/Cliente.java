@@ -1,4 +1,4 @@
-package com.techlab.inicio.clasePOO;
+package com.techlab.inicio.POO_I;
 //Creá una clase Cliente con atributos nombre y email.
 public class Cliente {
   //ATRIBUTOS
