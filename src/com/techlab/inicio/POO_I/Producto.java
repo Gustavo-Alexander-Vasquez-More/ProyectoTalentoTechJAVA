@@ -1,15 +1,23 @@
 package com.techlab.inicio.POO_I;
+
+import com.techlab.inicio.POO_II.Carrito;
+
 //En la clase Producto, agrega un método mostrarInformacion() que imprima nombre, precio y stock.
 public class Producto {
-  String nombre;
-  double precio;
-  int stock;
+  private String nombre;
+  private double precio;
+  private int stock;
 
   public Producto(String nombre, double precio, int stock){
     this.nombre=nombre;
     this.precio=precio;
     this.stock=stock;
   }
+
+  public double getPrecio(){
+    return precio;
+  }
+
 
   //como mostrará información de un objeto es específico lo definimos como metodo de instancia
   public void mostraInformacion(){

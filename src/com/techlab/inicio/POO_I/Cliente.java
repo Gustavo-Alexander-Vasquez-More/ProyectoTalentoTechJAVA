@@ -2,12 +2,30 @@ package com.techlab.inicio.POO_I;
 //Creá una clase Cliente con atributos nombre y email.
 public class Cliente {
   //ATRIBUTOS
-  String nombre;
-  String email;
+  private String nombre;
+  private String email;
   //Creá un constructor para Cliente que reciba el nombre y email
   public Cliente(String nombre, String email){
     this.nombre=nombre;
     this.email=email;
+  }
+
+  public String getEmail(){
+    return email;
+  }
+  public void setCorreo(String email){
+    if(email.contains("@") && !email.trim().isEmpty()){
+      this.email=email;
+    }
+  }
+  public String nombre(){
+    return nombre;
+  }
+
+  public void setNombre(String nombre){
+    if(!nombre.trim().isEmpty()){
+      this.nombre=nombre;
+    }
   }
 
   public static void main(String[] args) {
