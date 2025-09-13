@@ -1,35 +1,50 @@
-package com.techlab.inicio.POO_II;
-import com.techlab.inicio.POO_I.Producto;
-import java.util.ArrayList;
+  package com.techlab.inicio.POO_II;
 
-public class Carrito {
-  ArrayList<Producto> productos; //Este atributo es una lista de productos
-  //Desclaramos un constructor para el objeto Carrito
-  public Carrito(){ //incializo la lista vacía
-    this.productos= new ArrayList<>();
-  }
-  public void agregarProducto(Producto producto){ //recibirá una instancia creada
-    productos.add(producto); //agregamos el producto a la lista
-  }
+  import com.techlab.inicio.POO_I.Producto;
+  import java.util.ArrayList;
 
-  public double calcularTotal(){
-    double total=0;
-    for(int i=0; i < productos.size(); i++){
-      total=total + productos.get(i).getPrecio();
+  public class Carrito {
+    private ArrayList<Producto> productos;
+
+    //Variables estáticas
+    static int contProductos=0;
+
+    //CONSTRUCTORES
+    public Carrito(){
+      this.productos= new ArrayList<>();
     }
-    return total;
-  }
 
-  public static void main(String[] args) {
-    Carrito carrito= new Carrito(); //instanciamos el objeto carrito
-    //Crearemos instancias de productos
-    Producto producto1= new Producto("arroz",20.50,4);
-    //Necesitamos agregarlos al carrito
-    carrito.agregarProducto(producto1);
-    Producto producto2= new Producto("atún",35.70,10);
-    //Necesitamos agregarlos al carrito
-    carrito.agregarProducto(producto2);
-    //Vamos sacando el total
-    System.out.println("El total del carrito es $" + carrito.calcularTotal());
+    //MÉTODOS DE LA CLASE
+
+    public void agregarProducto(Producto p){
+      productos.add(p); // agregamos un producto a la lista
+      contProductos=contProductos + 1;
+    }
+
+    public void sumarProductos(){ //contará la cantidad de instancias que hay en el programa
+      System.out.println("La cantidad de productos que se crearon en el programa son: " + contProductos);
+    }
+
+    public double calcularTotal(){
+      double total=0;
+      for(int i=0; i < productos.size(); i ++){
+        total= total + (productos.get(i).getPrecio() * productos.get(i).getStock());
+      }
+      return total;
+    }
+
+    public static void main(String[] args) {
+
+      Carrito carrito= new Carrito(); //Inicializamos la lista vacía
+      //Meteremos 4 productos al carrito
+      carrito.agregarProducto(new Producto("Mayonesa", 20.00, 10));
+      carrito.agregarProducto(new Producto("Manteca", 5.60, 80));
+      carrito.agregarProducto(new Producto("Jamón en fetas 500g", 25.00, 5));
+      carrito.agregarProducto(new Producto("Leche Larga Vida 1LT", 15.20, 180));
+      carrito.productos.get(2).setStock(-10); //No cambió ya que el setter verifica que sea mayor a -1;
+      System.out.println(carrito.productos.get(2).getStock());
+      carrito.sumarProductos();
+      //al ser un metodo de instancia JAVA ya se da cuenta de que productos hablamos osea del mismo carrito de donde lo llamamos
+      System.out.println("El total a pagar del carrito es: $" + carrito.calcularTotal());
+    }
   }
-}
