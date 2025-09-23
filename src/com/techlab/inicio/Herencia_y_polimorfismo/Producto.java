@@ -6,6 +6,7 @@ abstract class Producto {
  private String nombre;
  private double precio;
  private int cantidad;
+
  public Producto(String nombre, double precio, int cantidad){
    this.nombre=nombre;
    this.precio=precio;
@@ -39,13 +40,24 @@ abstract class Producto {
     this.cantidad = cantidad;
   }
 
-  public abstract double calcularPrecioFinal();
+  public abstract double calcularPrecioFinal(); //Cada clase tiene distinta manera de calcular el precio por eso es abstracto
 
   public static void main(
       String[] args) {
     ArrayList<Producto> listaProductos=new ArrayList<>();
     listaProductos.add(new Te("Té negro", 15.50, 2, true));
-    listaProductos.add(new Cafe("Café Express", 25.00, 10, true, "Perú"));
-    System.out.println(listaProductos.get(1).calcularPrecioFinal());
+    listaProductos.add(new Cafe("Café Express", 25.00, 10, true, "Brasilero", false));
+    listaProductos.add(new Te("Té matcha", 5.50, 5, true));
+    listaProductos.add(new Cafe("Café Express", 47.00, 50, true, "Peruano", true));
+
+    for (Producto producto : listaProductos){
+      if(producto instanceof Te){
+         Te te=(Te) producto; //Polimorfismo: casteo del producto a te
+        System.out.println(te.getNombre() + ": $" + te.calcularPrecioFinal());
+      }else if(producto instanceof Cafe){
+        Cafe cafe=(Cafe) producto; //Polimorfismo: casteo del producto a te
+        System.out.println(cafe.getNombre() + ": $" + cafe.calcularPrecioFinal());
+      }
+    }
   }
 }
