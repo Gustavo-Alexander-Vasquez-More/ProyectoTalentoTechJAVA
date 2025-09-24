@@ -1,5 +1,6 @@
-package com.techlab.inicio.Herencia_y_polimorfismo;
-
+package com.techLab.learningModules.models;
+import com.techLab.learningModules.exceptions.ProductoNoEncontradoException;
+import com.techLab.learningModules.services.BuscarProductoService;
 import java.util.ArrayList;
 
 public abstract class Producto {
@@ -59,6 +60,25 @@ public abstract class Producto {
         System.out.println(cafe.getNombre() + ": $" + cafe.calcularPrecioFinal());
         System.out.println("Precio con descuento del 30% $" + cafe.aplicarDescuento(30));
       }
+    };
+    //Manejo de excepciones
+    //Con producto existente
+    try{
+      BuscarProductoService search=new BuscarProductoService(listaProductos.get(1).nombre);
+      search.buscarProductoPorNombre("Café Express");
+      System.out.println("Producto Encontrado");
+    }
+    catch(ProductoNoEncontradoException e){
+      System.out.println(e.getMessage());
+    }
+    //Prueba con producto no existente
+    try{
+      BuscarProductoService search=new BuscarProductoService(listaProductos.get(1).nombre);
+      search.buscarProductoPorNombre("Café Expreso");
+      System.out.println("Producto Encontrado");
+    }
+    catch(ProductoNoEncontradoException e){
+      System.out.println(e.getMessage());
     }
   }
 }
