@@ -54,9 +54,11 @@ abstract class Producto {
       if(producto instanceof Te){
          Te te=(Te) producto; //Polimorfismo: casteo del producto a te
         System.out.println(te.getNombre() + ": $" + te.calcularPrecioFinal());
+        System.out.println("Precio con descuento del 15% $" + te.aplicarDescuento(15));
       }else if(producto instanceof Cafe){
         Cafe cafe=(Cafe) producto; //Polimorfismo: casteo del producto a te
         System.out.println(cafe.getNombre() + ": $" + cafe.calcularPrecioFinal());
+        System.out.println("Precio con descuento del 30% $" + cafe.aplicarDescuento(30));
       }
     }
   }

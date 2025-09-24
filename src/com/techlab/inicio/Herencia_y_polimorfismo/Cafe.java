@@ -1,6 +1,6 @@
 package com.techlab.inicio.Herencia_y_polimorfismo;
 
-public class Cafe extends Producto{
+public class Cafe extends Producto implements Descontable{
   private boolean caliente;
   private boolean molido;
   private String origen;
@@ -17,5 +17,11 @@ public class Cafe extends Producto{
     }else{
       return getPrecio() * getCantidad(); //si se lo lleva en grano es más barato
     }
+  }
+
+  @Override
+  public double aplicarDescuento(double porcentaje) {
+    double diferencia=(calcularPrecioFinal() * porcentaje)/100;
+    return calcularPrecioFinal() - diferencia;
   }
 }
